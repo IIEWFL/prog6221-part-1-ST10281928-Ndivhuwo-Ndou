@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST10281928_NDIVHUWONDOU_PROG6221_PART1;
+using System;
 
 class Response
     {
@@ -12,24 +13,24 @@ class Response
 
             string userinput = Console.ReadLine();
             
-                
-                switch (userinput)
+                switch (userinput.ToLower())
                 {
-                    case "What is your purpose":
+                    case string y when y.Contains("purpose"):
                         Console.WriteLine("I am a chat bot that specialises in cyber security.\n" +
                             "I am here to assist you in understanding cyber security and give you tips on\n" +
-                            "how to keep yourself safe and prevent any attacks from happening while on the internet.\n");
-                        break;
-                    case "How are you":
-                        Console.WriteLine("I am great. How are you?");
+                            "how to keep yourself safe and prevent any attacks from happening while on the internet."); 
+                    break;
+                    case string z when z.Contains("are you"):
+                        Program.typingEffect("I am great. How are you?");
                         Console.ReadLine();
+                        Program.typingEffect($"That is great to here");
                         break;
-                    case "What can I ask you about":
-                        Console.WriteLine("The topics I currently have knowledge on are:" +
+                    case string w when w.Contains("topics"):
+                        Program.typingEffect("The topics I currently have knowledge on are:" +
                         "\n--Password Safety" +
                         "\n--Phishing" +
-                        "\n--Safe browsing\n");
-                        userinput = Console.ReadLine();
+                        "\n--Safe browsing\n" +
+                        "Type 'exit' to stop the chatbot");
                         break;
                     case string x when x.Contains("password"):
                         Topic_Information(x);
@@ -40,17 +41,21 @@ class Response
                     case string x when x.Contains("browsing"):
                         Topic_Information(x);
                         break;
-                default:
-                        Console.WriteLine( new Exception("Sorry I did not get the request please enter again"));
+                case "exit":
+                    Console.WriteLine("Thank you, see you next time");
+                    break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Sorry I did not get the request please enter again");
+                        Console.ResetColor();
                     break;    
                 }
-                
                 if (userinput == "exit")
                 {
                     run = "no";
                 }
 
-            
+
         }
 
         
@@ -66,7 +71,7 @@ class Response
             //Raul Bojalil
             //https://stackoverflow.com/users/7550948/ra%c3%bal-bojalil
             case string j when j.Contains("password"):
-                Console.WriteLine("======================================= PASSWORD SAFETY =========================================\n" +
+                Program.typingEffect("======================================= PASSWORD SAFETY =========================================\n" +
                     "Password safety is how secure your password is. The more secure your password\n" +
                     "is the more difficult it is to crack. Your password is the protector of you private\n" +
                     "information if it gets cracked then everything will be stolen by the attackers. In a work\n" +
@@ -83,11 +88,11 @@ class Response
                     "Change your password regurlarly.\n" +
                     "  e.g. Every month or twice a year\n" +
                     "*Do not click suspicious links \n" +
-                    "  e.g. http://Amazonisgood.com \n");
+                    "  e.g. http://Amazonisgood.com ");
                 break;
 
             case string j when j.Contains("phishing"):
-                Console.WriteLine("======================================= PHISHING =========================================\n" +
+                Program.typingEffect("======================================= PHISHING =========================================\n" +
                     "Phishing is the act of sending fauls communication to someone\n" +
                     "and making it look like it comes from a trustworthy source such as a corporation or\n" +
                     "someone you know in order to gain access to sensitive information or financial gain.\n" +
@@ -105,11 +110,11 @@ class Response
                     "======================================= HOW TO PREVENT THE ATTACKS =========================================\n" +
                     "*Look at the link before you click it\n" +
                     "*Do not give out personal information on email\n" +
-                    "*Monitor your online accounts.\n");
+                    "*Monitor your online accounts.");
                 break;
 
             case string j when j.Contains("browsing"):
-                Console.WriteLine("======================================= SAFE BROWSING =========================================\n" +
+                Program.typingEffect("======================================= SAFE BROWSING =========================================\n" +
                     "Safe browsing is a service run by Google and is offerd on many browsers, this service is to\n" +
                     "find out if the website is safe or risky. The web browsers such as Chrome, FireFox, and Safari\n" +
                     "run this service so that they can alert you if the website that you are currently on is safe or dangerous\n" +
@@ -122,7 +127,7 @@ class Response
                     "======================================= PROTECTION FROM RISKY WEBSITES =========================================\n" +
                     "*Look at the URL link of the website, if the link starts with https then that is a secure\n" +
                     "   website because the 's' at teh end stands for secure and it shows that the website is legitimate.\n" +
-                    "*Download a anti-virus software that offers protection against online attacks.\n");
+                    "*Download a anti-virus software that offers protection against online attacks.");
                 break;
         }
     }
