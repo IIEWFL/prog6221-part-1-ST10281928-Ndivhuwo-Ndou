@@ -72,6 +72,8 @@ namespace ST10281928_NDIVHUWONDOU_PROG6221_PART1
         //https://stackoverflow.com/users/6075331/cuty-boy
         public static void Play_Audio()
         {
+            //This is a SoundPlayer object which will be used to call the wav audio
+            //The audio is located in the bin> Debug
             SoundPlayer welcome = new SoundPlayer(@"IntroAudio.wav");
             welcome.Load();
             welcome.Play();
@@ -83,14 +85,25 @@ namespace ST10281928_NDIVHUWONDOU_PROG6221_PART1
                 "about cyber security and being safe online.\n" +
                 "Why don't we start off by you telling me your name?"
             );
+
+
+            //Code Attribution
+            //This code is to change the colour of the text and I got it from geeksforgeeks
+            //https://www.geeksforgeeks.org/c-sharp-how-to-change-foreground-color-of-text-in-console/
+            //Geeksforgeeks
+
+
             Console.ForegroundColor = ConsoleColor.Green;
             string userName = Console.ReadLine();
             Console.ResetColor();
-            //This will check if the name is entered
+            //This will check if the name variable is empty or not
             while (string.IsNullOrEmpty(userName))
             {
+                
                 typingEffect("Please re-enter your name");
+                Console.ForegroundColor = ConsoleColor.Green;
                 userName = Console.ReadLine();
+                Console.ResetColor();
             }
 
             typingEffect($"{userName} nice to meet you. Welcome, I hope I will be of great help to you\nAsk me anything\n" +
@@ -123,9 +136,17 @@ namespace ST10281928_NDIVHUWONDOU_PROG6221_PART1
             Console.ResetColor();
         }
 
+        //Code Attribution
+        //This is the method for the typewriter effect
+        //joshschmelzle
+        //https://gist.github.com/joshschmelzle/610451c749dd14bb777a?utm
+
+        /*This method is to create a type writing effect where the messages will be
+        printed out leter by letter with a delay*/
         public static void typingEffect(string message, int delay = 30)
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            //A for-loop to store the message and break it down by its characters
             foreach(char ch in message)
             {
                 Console.Write(ch);

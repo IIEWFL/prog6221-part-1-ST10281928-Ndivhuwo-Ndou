@@ -5,32 +5,38 @@ class Response
     {
     public static void Basic_Response()
     {
-        
+        /*This string variable is to control the while loop so that the user can remain in
+        the loop and able to repeat requests until they type 'exit'
+        */
         string run = "yes";
 
         while (run == "yes")
         {
-
+            Console.ForegroundColor = ConsoleColor.Green;
             string userinput = Console.ReadLine();
+            Console.ResetColor();
             
+                //This input is change to lowercase making everything the same and easy to search through
                 switch (userinput.ToLower())
                 {
                     case string y when y.Contains("purpose"):
-                        Console.WriteLine("I am a chat bot that specialises in cyber security.\n" +
+                        Program.typingEffect("I am a chat bot that specialises in cyber security.\n" +
                             "I am here to assist you in understanding cyber security and give you tips on\n" +
-                            "how to keep yourself safe and prevent any attacks from happening while on the internet."); 
+                            "how to keep yourself safe and prevent any attacks from happening while on the internet.\n"); 
                     break;
                     case string z when z.Contains("are you"):
                         Program.typingEffect("I am great. How are you?");
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.ReadLine();
-                        Program.typingEffect($"That is great to here");
+                        Console.ResetColor();
+                        Program.typingEffect($"That is great to here\n");
                         break;
                     case string w when w.Contains("topics"):
                         Program.typingEffect("The topics I currently have knowledge on are:" +
                         "\n--Password Safety" +
                         "\n--Phishing" +
                         "\n--Safe browsing\n" +
-                        "Type 'exit' to stop the chatbot");
+                        "Type 'exit' to stop the chatbot\n");
                         break;
                     case string x when x.Contains("password"):
                         Topic_Information(x);
@@ -42,14 +48,19 @@ class Response
                         Topic_Information(x);
                         break;
                 case "exit":
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Thank you, see you next time");
+                    Console.ResetColor();
                     break;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Sorry I did not get the request please enter again");
+                        Console.WriteLine("Sorry I did not get the request please enter again.\n");
                         Console.ResetColor();
                     break;    
                 }
+            /*This if-statement will check if the user has typed 'exit' in order to determine 
+            whether they stay in the loop or not
+            */
                 if (userinput == "exit")
                 {
                     run = "no";
@@ -60,7 +71,7 @@ class Response
 
         
     }
-
+    //This method contains all the information the chatbot can provide
     public static void Topic_Information(string topic)
     {
         switch (topic)
@@ -88,7 +99,7 @@ class Response
                     "Change your password regurlarly.\n" +
                     "  e.g. Every month or twice a year\n" +
                     "*Do not click suspicious links \n" +
-                    "  e.g. http://Amazonisgood.com ");
+                    "  e.g. http://Amazonisgood.com \n");
                 break;
 
             case string j when j.Contains("phishing"):
@@ -110,7 +121,7 @@ class Response
                     "======================================= HOW TO PREVENT THE ATTACKS =========================================\n" +
                     "*Look at the link before you click it\n" +
                     "*Do not give out personal information on email\n" +
-                    "*Monitor your online accounts.");
+                    "*Monitor your online accounts.\n");
                 break;
 
             case string j when j.Contains("browsing"):
@@ -127,7 +138,7 @@ class Response
                     "======================================= PROTECTION FROM RISKY WEBSITES =========================================\n" +
                     "*Look at the URL link of the website, if the link starts with https then that is a secure\n" +
                     "   website because the 's' at teh end stands for secure and it shows that the website is legitimate.\n" +
-                    "*Download a anti-virus software that offers protection against online attacks.");
+                    "*Download a anti-virus software that offers protection against online attacks.\n");
                 break;
         }
     }
