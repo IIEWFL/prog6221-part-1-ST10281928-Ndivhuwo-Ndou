@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore "C:\Users\ndoum\prog6221-part-2-ST10281928-Ndivhuwo-Ndou\ST10281928-NDIVHUWO NDOU-PROG6221-PART2\ST10281928-NDIVHUWO NDOU-PROG6221-PART2.csproj"
+      run: dotnet restore ST10281928-NDIVHUWONDOU-PROG6221-PART1/ST10281928-NDIVHUWONDOU-PROG6221-PART1.csproj
     - name: Build
-      run: dotnet build "C:\Users\ndoum\prog6221-part-2-ST10281928-Ndivhuwo-Ndou\ST10281928-NDIVHUWO NDOU-PROG6221-PART2\ST10281928-NDIVHUWO NDOU-PROG6221-PART2.csproj" --no-restore
+      run: dotnet build ST10281928-NDIVHUWONDOU-PROG6221-PART1/ST10281928-NDIVHUWONDOU-PROG6221-PART1.csproj --no-restore
     - name: Test
-      run: dotnet test "C:\Users\ndoum\prog6221-part-2-ST10281928-Ndivhuwo-Ndou\ST10281928-NDIVHUWO NDOU-PROG6221-PART2\ST10281928-NDIVHUWO NDOU-PROG6221-PART2.csproj" --no-build --verbosity normal
+      run: dotnet test ST10281928-NDIVHUWONDOU-PROG6221-PART1/ST10281928-NDIVHUWONDOU-PROG6221-PART1.csproj --no-build --verbosity normal
